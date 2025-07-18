@@ -1,7 +1,6 @@
-import type { FC } from 'react';
 import { Button } from 'primereact/button';
 
-const DashboardPage: FC = () => {
+const DashboardPage = () => {
 
   const displayMessage = () => {
     alert('Hi I\'m a message');
