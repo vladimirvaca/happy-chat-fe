@@ -1,5 +1,6 @@
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
 import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 
 const LoginForm = () => {
   return (
@@ -12,6 +13,7 @@ const LoginForm = () => {
         <label htmlFor="password"><strong>Password</strong></label>
         <InputText type="text" id="password" placeholder="Enter your password" />
       </InputFieldContainer>
+      <Button className="login-button" label="Login" />
     </>);
 };
 
