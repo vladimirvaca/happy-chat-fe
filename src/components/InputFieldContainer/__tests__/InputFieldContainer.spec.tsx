@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
 
 describe('InputFieldContainer', () => {
-  it('renders children correctly', () => {
+  it('should renders children correctly', () => {
     render(
       <InputFieldContainer>
         <div data-testid="test-child">Test Content</div>
@@ -14,7 +14,7 @@ describe('InputFieldContainer', () => {
     expect(childElement).toHaveTextContent('Test Content');
   });
 
-  it('applies the correct class name', () => {
+  it('should applies the correct class name', () => {
     const { container } = render(
       <InputFieldContainer>
         <div>Test Content</div>
