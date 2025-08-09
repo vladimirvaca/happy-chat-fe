@@ -6,6 +6,8 @@ import { classNames } from 'primereact/utils';
 import type { ChangeEvent } from 'react';
 import type { LoginData, LoginFormData, LoginFormErrors } from '../../pages/auth/types.ts';
 
+import './LoginFormStyles.css';
+
 interface LoginFormProps {
   handleSubmit: (loginFormData: LoginData) => void;
 }

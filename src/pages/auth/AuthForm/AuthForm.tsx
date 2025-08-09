@@ -2,6 +2,7 @@ import { Card } from 'primereact/card';
 import { Col, Row } from 'react-grid-system';
 import { TabPanel, TabView } from 'primereact/tabview';
 import LoginForm from '@components/LoginForm/LoginForm.tsx';
+import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
 
 import './AuthFormStyles.css';
 
@@ -21,7 +22,7 @@ const AuthForm = () => {
               }} />
             </TabPanel>
             <TabPanel header="Sign Up">
-              <p>Register</p>
+              <SignUpForm />
             </TabPanel>
           </TabView>
         </Card>
