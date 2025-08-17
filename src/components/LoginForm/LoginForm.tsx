@@ -1,12 +1,12 @@
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { type FormikValues, useFormik } from 'formik';
+import { FormikValues, useFormik } from 'formik';
 import { classNames } from 'primereact/utils';
-import type { ChangeEvent } from 'react';
-import type { LoginData, LoginFormData, LoginFormErrors } from '../../pages/auth/types.ts';
+import { ChangeEvent } from 'react';
+import { LoginData, LoginFormData, LoginFormErrors } from '../../pages/auth/types/types.ts';
 
-import './LoginFormStyles.css';
+import { styles } from './LoginFormStyles.ts';
 
 interface LoginFormProps {
   handleSubmit: (loginFormData: LoginData) => void;
@@ -112,7 +112,7 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
 
       <Button
         type="submit"
-        className="login-button"
+        style={styles.loginButton}
         label="Login"
         data-testid="login-button"
       />

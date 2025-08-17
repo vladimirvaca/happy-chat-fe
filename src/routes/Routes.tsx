@@ -1,8 +1,14 @@
 import { createBrowserRouter } from 'react-router';
-import DashboardPage from '../pages/dashboard/dashboardPage.tsx';
+import DashboardPage from '../pages/dashboard/DashboardPage.tsx';
 import AuthPage from '../pages/auth/AuthPage.tsx';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <DashboardPage />
+    )
+  },
   {
     path: '/dashboard',
     element: (
@@ -10,7 +16,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: '/',
+    path: '/auth',
     element: (
       <AuthPage />
     )

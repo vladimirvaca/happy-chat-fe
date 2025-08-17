@@ -1,8 +1,0 @@
-/* Overwrite classes from prime-react*/
-.p-tabview-nav li {
-  flex: 1;
-}
-
-.p-tabview-nav-link {
-  justify-content: center;
-}

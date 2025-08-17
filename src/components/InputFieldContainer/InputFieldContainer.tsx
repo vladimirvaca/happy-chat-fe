@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import './InputFieldContainerStyles.css';
+import { styles } from './InputFieldContainerStyles.ts';
 
 interface InputFieldContainerProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface InputFieldContainerProps {
 
 const InputFieldContainer: FC<InputFieldContainerProps> = ({ children }) => {
   return (
-    <div className="field-container">
+    <div style={styles.fieldContainer}>
       {children}
     </div>
   );

@@ -4,7 +4,7 @@ import { TabPanel, TabView } from 'primereact/tabview';
 import LoginForm from '@components/LoginForm/LoginForm.tsx';
 import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
 
-import './AuthFormStyles.css';
+import { styles } from './AuthFormStyles.ts';
 
 const AuthForm = () => {
 
@@ -17,11 +17,11 @@ const AuthForm = () => {
       <Col xs={12} sm={6} md={8} lg={6} xl={4}>
         <Card title={title} subTitle={subtitle}>
           <TabView>
-            <TabPanel header="Login" headerClassName="tab-panel">
-              <LoginForm handleSubmit={() => {
+            <TabPanel header="Login" headerStyle={styles.tabPanelHeader}>
+              < LoginForm handleSubmit={() => {
               }} />
             </TabPanel>
-            <TabPanel header="Sign Up">
+            <TabPanel header="Sign Up" headerStyle={styles.tabPanelHeader}>
               <SignUpForm />
             </TabPanel>
           </TabView>

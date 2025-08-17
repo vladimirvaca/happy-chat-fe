@@ -13,15 +13,4 @@ describe('InputFieldContainer', () => {
     expect(childElement).toBeInTheDocument();
     expect(childElement).toHaveTextContent('Test Content');
   });
-
-  it('should applies the correct class name', () => {
-    const { container } = render(
-      <InputFieldContainer>
-        <div>Test Content</div>
-      </InputFieldContainer>
-    );
-
-    const fieldContainer = container.querySelector('.field-container');
-    expect(fieldContainer).toBeInTheDocument();
-  });
 });

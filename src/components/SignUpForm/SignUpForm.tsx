@@ -2,29 +2,166 @@ import InputFieldContainer from '@components/InputFieldContainer/InputFieldConta
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
-import './SignUpFormStyles.css';
+import { styles } from './SignUpFormStyles.ts';
+import { FormikValues, useFormik } from 'formik';
+import { SignUpFormData, SignUpFormErrors } from '../../pages/auth/types/types.ts';
+import { ChangeEvent } from 'react';
+import { classNames } from 'primereact/utils';
 
-const SignUpForm = () => {
+interface SignUpFormProps {
+  handleSubmit: (signUpFormData: SignUpFormData) => void;
+}
+
+const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      lastname: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    },
+
+    validateOnChange: true,
+    validateOnBlur: true,
+
+    validate: (signUpFormData: SignUpFormData) => {
+      const errors: SignUpFormErrors = {};
+
+      if (!signUpFormData.name) {
+        errors.name = 'Please enter your name.';
+      }
+
+      if (!signUpFormData.lastname) {
+        errors.lastname = 'Please enter your lastname.';
+      }
+
+      if (!signUpFormData.email) {
+        errors.email = 'Please enter your email.';
+      }
+
+      if (
+        signUpFormData.email &&
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(signUpFormData.email)
+      ) {
+        errors.email = 'Invalid email address.';
+      }
+
+      if (!signUpFormData.password) {
+        errors.password = 'Password is required.';
+      }
+
+      if (!signUpFormData.confirmPassword) {
+        errors.confirmPassword = 'Please confirm your password.';
+      } else if (signUpFormData.password && signUpFormData.confirmPassword !== signUpFormData.password) {
+        errors.confirmPassword = 'Passwords do not match.';
+      }
+
+      return errors;
+    },
+    onSubmit: (signUpFormData: SignUpFormData, { resetForm }) => {
+      handleSubmit(signUpFormData);
+      resetForm();
+    }
+  });
+
+  const handleFieldChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    await formik.setFieldValue(name, value);
+    await formik.setFieldTouched(name, true, false);
+    await formik.validateField(name);
+  };
+
+  const isFormFieldValid = (field: string, formik: FormikValues) =>
+    !!(formik.touched[field] && formik.errors[field]);
+
+  const getFormErrorMessage = (field: string, formik: FormikValues) =>
+    isFormFieldValid(field, formik) && (
+      <small className="p-error" data-testid={`${field}-message`}>
+        {formik.errors[field]}
+      </small>
+    );
+
+
   return (
-    <form data-testid="sign-up-form">
+    <form data-testid="sign-up-form" onSubmit={formik.handleSubmit}>
       <InputFieldContainer>
         <label htmlFor="name"><strong>Name</strong></label>
-        <InputText type="text" id="name" name="name" placeholder="Enter your name" />
+        <InputText
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          data-testid="name-input"
+          value={formik.values.name}
+          onChange={handleFieldChange}
+          onBlur={formik.handleBlur}
+          className={classNames({ 'p-invalid': isFormFieldValid('name', formik) })}
+        />
+        {getFormErrorMessage('name', formik)}
       </InputFieldContainer>
       <InputFieldContainer>
         <label htmlFor="email"><strong>Lastname</strong></label>
-        <InputText type="text" id="lastname" name="lastname" placeholder="Enter your lastname" />
+        <InputText
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Enter your lastname"
+          data-testid="lastname-input"
+          value={formik.values.lastname}
+          onChange={handleFieldChange}
+          onBlur={formik.handleBlur}
+        />
+        {getFormErrorMessage('lastname', formik)}
       </InputFieldContainer>
       <InputFieldContainer>
         <label htmlFor="email"><strong>Email</strong></label>
-        <InputText type="email" id="email" name="email" placeholder="Enter your email" />
+        <InputText
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          data-testid="email-input"
+          value={formik.values.email}
+          onChange={handleFieldChange}
+          onBlur={formik.handleBlur}
+          className={classNames({ 'p-invalid': isFormFieldValid('email', formik) })}
+        />
+        {getFormErrorMessage('email', formik)}
       </InputFieldContainer>
       <InputFieldContainer>
         <label htmlFor="password"><strong>Password</strong></label>
-        <InputText type="password" id="password" name="password" placeholder="Enter your password" />
+        <InputText
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          data-testid="password-input"
+          value={formik.values.password}
+          onChange={handleFieldChange}
+          onBlur={formik.handleBlur}
+          className={classNames({ 'p-invalid': isFormFieldValid('password', formik) })}
+        />
+        {getFormErrorMessage('password', formik)}
+      </InputFieldContainer>
+      <InputFieldContainer>
+        <label htmlFor="password"><strong>Confirm Password</strong></label>
+        <InputText
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          data-testid="confirmPassword-input"
+          value={formik.values.confirmPassword}
+          onChange={handleFieldChange}
+          onBlur={formik.handleBlur}
+          className={classNames({ 'p-invalid': isFormFieldValid('confirmPassword', formik) })}
+        />
+        {getFormErrorMessage('confirmPassword', formik)}
+
       </InputFieldContainer>
 
-      <Button type="submit" label="Sign Up" data-testid="sign-up-button" className="sign-up-button" />
+      <Button type="submit" label="Sign Up" data-testid="signup-button" style={styles.signUpButton} />
     </form>
   );
 };
