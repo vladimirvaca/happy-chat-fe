@@ -63,7 +63,7 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
   const getFormErrorMessage = (field: string, formik: FormikValues) => {
     return (
       isFormFieldValid(field, formik) && (
-        <small className="p-error" data-testid={`${field}-message`}>
+        <small className="p-error" data-test={`${field}-message`}>
           {formik.errors[field]}
         </small>
       )
@@ -72,14 +72,14 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
 
 
   return (
-    <form onSubmit={formik.handleSubmit} data-testid="login-form">
+    <form onSubmit={formik.handleSubmit} data-test="login-form">
       <InputFieldContainer>
         <label htmlFor="email"><strong>Email</strong></label>
         <InputText
           type="text"
           id="email"
           name="email"
-          data-testid="email-input"
+          data-test="email-input"
           placeholder="Enter your email"
           value={formik.values.email}
           onChange={handleFieldChange}
@@ -98,7 +98,7 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
           type="password"
           id="password"
           name="password"
-          data-testid="password-input"
+          data-test="password-input"
           placeholder="Enter your password"
           value={formik.values.password}
           onChange={handleFieldChange}
@@ -114,7 +114,7 @@ const LoginForm = ({ handleSubmit }: LoginFormProps) => {
         type="submit"
         style={styles.loginButton}
         label="Login"
-        data-testid="login-button"
+        data-test="login-button"
       />
     </form>);
 };

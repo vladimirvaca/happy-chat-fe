@@ -27,7 +27,7 @@ const UserInfoCard: FC<UserCardProps> = ({ name, email, onOpenProfile }) => {
         aria-label="Open profile"
         onClick={onOpenProfile}
         style={{ marginLeft: 'auto' }}
-        data-testid = 'openProfile-button'
+        data-test = 'openProfile-button'
       />
     </div>
   );

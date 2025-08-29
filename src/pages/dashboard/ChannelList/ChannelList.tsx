@@ -25,31 +25,31 @@ const ChannelList: FC<ChannelListProps> = ({ channels, selectedChannelId, onSele
               ...styles.item,
               ...(selected ? styles.itemSelected : {})
             }}
-            data-testid="listItem"
+            data-test="listItem"
             aria-current={selected ? 'true' : undefined}
           >
             <div style={styles.itemHeader}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span aria-hidden style={styles.hash} data-testid="hash-label">#</span>
-                <span style={styles.name} data-testid="channelName-label">{channel.name}</span>
+                <span aria-hidden style={styles.hash} data-test="hash-label">#</span>
+                <span style={styles.name} data-test="channelName-label">{channel.name}</span>
                 {channel.isPrivate && (
-                  <span style={styles.privateTag} aria-label="Private" data-testid="private-label">
+                  <span style={styles.privateTag} aria-label="Private" data-test="private-label">
                     Private
                   </span>
                 )}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 {typeof channel.unreadCount === 'number' && channel.unreadCount > 0 && (
-                  <Badge value={channel.unreadCount} severity="info" data-testid="unreadCount-badge" />
+                  <Badge value={channel.unreadCount} severity="info" data-test="unreadCount-badge" />
                 )}
-                <div title="Members" style={styles.members} data-testid="members-section">
+                <div title="Members" style={styles.members} data-test="members-section">
                   <i className="pi pi-users" />
                   {channel.membersCount}
                 </div>
               </div>
             </div>
             {channel.description &&
-              <div style={styles.desc} data-testid="description-label">{channel.description}</div>}
+              <div style={styles.desc} data-test="description-label">{channel.description}</div>}
           </button>
         );
       })}

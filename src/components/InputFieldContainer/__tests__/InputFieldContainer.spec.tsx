@@ -5,7 +5,7 @@ describe('InputFieldContainer', () => {
   it('should renders children correctly', () => {
     render(
       <InputFieldContainer>
-        <div data-testid="test-child">Test Content</div>
+        <div data-test="test-child">Test Content</div>
       </InputFieldContainer>
     );
 

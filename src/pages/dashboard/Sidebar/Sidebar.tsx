@@ -24,7 +24,7 @@ const Sidebar: FC<SidebarProps> = ({ channels, onCreateChannel, onSelectChannel,
       <UserInfoCard
         name="ramvlay"
         email="ramvlay@gmail.com"
-        data-testid="userInfoCard"
+        data-test="userInfoCard"
         onOpenProfile={() => {
         }}
       />
@@ -34,7 +34,7 @@ const Sidebar: FC<SidebarProps> = ({ channels, onCreateChannel, onSelectChannel,
           style={{ ...styles.tabBtn, ...(activeTab === 'channels' ? styles.tabActive : {}) }}
           onClick={() => setActiveTab('channels')}
           aria-pressed={activeTab === 'channels'}
-          data-testid="channels-button"
+          data-test="channels-button"
         >
           <i className="pi pi-hashtag" /> Channels
         </button>
@@ -42,7 +42,7 @@ const Sidebar: FC<SidebarProps> = ({ channels, onCreateChannel, onSelectChannel,
           style={{ ...styles.tabBtn, ...(activeTab === 'messages' ? styles.tabActive : {}) }}
           onClick={() => setActiveTab('messages')}
           aria-pressed={activeTab === 'messages'}
-          data-testid="messages-button"
+          data-test="messages-button"
         >
           <i className="pi pi-comments" /> Messages
         </button>
@@ -51,26 +51,26 @@ const Sidebar: FC<SidebarProps> = ({ channels, onCreateChannel, onSelectChannel,
       {activeTab === 'channels' && (
         <>
           <div style={styles.sectionHeader}>
-            <div style={styles.sectionTitle} data-testid="createChannel-label">Channels</div>
+            <div style={styles.sectionTitle} data-test="createChannel-label">Channels</div>
             <Button
               icon="pi pi-plus"
               size="small"
               aria-label="Create channel"
               onClick={onCreateChannel}
-              data-testid="createChannel-button"
+              data-test="createChannel-button"
             />
           </div>
           <ChannelList
             channels={channels}
             selectedChannelId={selectedChannelId}
             onSelectChannel={(id) => onSelectChannel?.(id)}
-            data-testid="channelList"
+            data-test="channelList"
           />
         </>
       )}
 
       {activeTab === 'messages' && (
-        <div style={{ padding: 12, color: '#6b7280' }} data-testid="noMessages-label">No direct messages yet.</div>
+        <div style={{ padding: 12, color: '#6b7280' }} data-test="noMessages-label">No direct messages yet.</div>
       )}
     </div>
   );

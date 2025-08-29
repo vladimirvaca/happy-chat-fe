@@ -77,14 +77,14 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
 
   const getFormErrorMessage = (field: string, formik: FormikValues) =>
     isFormFieldValid(field, formik) && (
-      <small className="p-error" data-testid={`${field}-message`}>
+      <small className="p-error" data-test={`${field}-message`}>
         {formik.errors[field]}
       </small>
     );
 
 
   return (
-    <form data-testid="sign-up-form" onSubmit={formik.handleSubmit}>
+    <form data-test="sign-up-form" onSubmit={formik.handleSubmit}>
       <InputFieldContainer>
         <label htmlFor="name"><strong>Name</strong></label>
         <InputText
@@ -92,7 +92,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="name"
           name="name"
           placeholder="Enter your name"
-          data-testid="name-input"
+          data-test="name-input"
           value={formik.values.name}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
@@ -107,7 +107,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="lastname"
           name="lastname"
           placeholder="Enter your lastname"
-          data-testid="lastname-input"
+          data-test="lastname-input"
           value={formik.values.lastname}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
@@ -121,7 +121,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="email"
           name="email"
           placeholder="Enter your email"
-          data-testid="email-input"
+          data-test="email-input"
           value={formik.values.email}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
@@ -136,7 +136,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="password"
           name="password"
           placeholder="Enter your password"
-          data-testid="password-input"
+          data-test="password-input"
           value={formik.values.password}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
@@ -151,7 +151,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="confirmPassword"
           name="confirmPassword"
           placeholder="Confirm your password"
-          data-testid="confirmPassword-input"
+          data-test="confirmPassword-input"
           value={formik.values.confirmPassword}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
@@ -161,7 +161,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
 
       </InputFieldContainer>
 
-      <Button type="submit" label="Sign Up" data-testid="signup-button" style={styles.signUpButton} />
+      <Button type="submit" label="Sign Up" data-test="signup-button" style={styles.signUpButton} />
     </form>
   );
 };

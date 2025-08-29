@@ -10,8 +10,8 @@ interface ChatLayoutProps {
 const ChatLayout: FC<ChatLayoutProps> = ({ sidebar, main }: ChatLayoutProps) => {
   return (
     <div style={styles.root}>
-      <aside style={styles.sidebar} data-testid="sidebar">{sidebar}</aside>
-      <main style={styles.main} data-testid="main">{main}</main>
+      <aside style={styles.sidebar} data-test="sidebar">{sidebar}</aside>
+      <main style={styles.main} data-test="main">{main}</main>
     </div>
   );
 };

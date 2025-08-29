@@ -5,11 +5,11 @@ import Sidebar from '../Sidebar.tsx';
 import { Channel } from '../../types/types.ts';
 
 vi.mock('@components/UserInfoCard/UserInfoCard.tsx', () => ({
-  default: () => <div data-testid="userInfoCard" />
+  default: () => <div data-test="userInfoCard" />
 }));
 
 vi.mock('../../ChannelList/ChannelList.tsx', () => ({
-  default: () => <div data-testid="channelList" />
+  default: () => <div data-test="channelList" />
 }));
 
 const channels: Channel[] = [
