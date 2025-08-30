@@ -66,7 +66,7 @@ The production build is output to the dist folder.
 
 ### 4) Preview the production build
 ```bash
-- npm run preview
+npm run preview
 ```
 
 This serves the dist build locally to validate the production bundle.
