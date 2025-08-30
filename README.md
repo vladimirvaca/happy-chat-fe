@@ -41,7 +41,7 @@ Verify your versions:
 node -v
 ```
 ```bash
-- npm -v
+npm -v
 ```
 
 ## Getting Started
