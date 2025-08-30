@@ -52,7 +52,7 @@ npm install
 ```
 ### 2) Run the app (development)
 ```bash
-- npm run dev
+npm run dev
 ```
 
 Vite will print a local URL (typically http://localhost:5173). Open it in your browser.
