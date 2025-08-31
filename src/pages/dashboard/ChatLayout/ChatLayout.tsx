@@ -1,5 +1,4 @@
 import { FC, ReactNode } from 'react';
-
 import { styles } from './ChatLayoutStyles.ts';
 
 interface ChatLayoutProps {

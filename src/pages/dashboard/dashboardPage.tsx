@@ -1,8 +1,8 @@
-import { useMemo, useState, SetStateAction } from 'react';
-import { Channel } from './types/types.ts';
 import WelcomePanel from '@components/WelcomePanel/WelcomePanel.tsx';
-import Sidebar from './Sidebar/Sidebar.tsx';
+import { SetStateAction, useMemo, useState } from 'react';
 import ChatLayout from './ChatLayout/ChatLayout.tsx';
+import Sidebar from './Sidebar/Sidebar.tsx';
+import { Channel } from './types/types.ts';
 
 const DashboardPage = () => {
 

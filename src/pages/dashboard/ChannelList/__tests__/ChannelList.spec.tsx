@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ChannelList from '../ChannelList.tsx';
 import { Channel } from '../../types/types.ts';
+import ChannelList from '../ChannelList.tsx';
 
 const channels: Channel[] = [
   {

@@ -1,11 +1,9 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import path from 'path';
-
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { configDefaults } from 'vitest/config';
+ 
 
 
 // https://vite.dev/config/
@@ -15,7 +13,8 @@ export default defineConfig({
     alias: {
       '@': '/src/',
       '@components': path.resolve(__dirname, './src/components'),
-      '@services': path.resolve(__dirname, './src/services')
+      '@services': path.resolve(__dirname, './src/services'),
+      '@pages': path.resolve(__dirname, './src/pages'),
     }
   },
   test: {

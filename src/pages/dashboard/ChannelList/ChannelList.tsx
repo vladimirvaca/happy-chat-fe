@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { Badge } from 'primereact/badge';
+import { FC } from 'react';
 import { Channel } from '../types/types.ts';
-
 import { styles } from './ChannelListStyles.ts';
 
 interface ChannelListProps {

@@ -1,5 +1,5 @@
-import ApiConfig from './ApiConfig.ts';
 import { LoginFormData } from '../pages/auth/types/types.ts';
+import ApiConfig from './ApiConfig.ts';
 
 export default {
   async login(loginFormData: LoginFormData) {

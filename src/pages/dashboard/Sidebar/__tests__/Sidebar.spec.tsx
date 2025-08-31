@@ -1,8 +1,8 @@
-import { ComponentProps } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Sidebar from '../Sidebar.tsx';
+import { ComponentProps } from 'react';
 import { Channel } from '../../types/types.ts';
+import Sidebar from '../Sidebar.tsx';
 
 vi.mock('@components/UserInfoCard/UserInfoCard.tsx', () => ({
   default: () => <div data-test="userInfoCard" />

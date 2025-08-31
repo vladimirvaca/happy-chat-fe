@@ -1,7 +1,7 @@
+import UserInfoCard from '@components/UserInfoCard/UserInfoCard.tsx';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
-import UserInfoCard from '@components/UserInfoCard/UserInfoCard.tsx';
 
 describe('UserInfoCard', () => {
   const name = 'John Doe';

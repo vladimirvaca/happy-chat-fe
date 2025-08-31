@@ -1,14 +1,13 @@
-import { Card } from 'primereact/card';
-import { Col, Row } from 'react-grid-system';
-import { TabPanel, TabView } from 'primereact/tabview';
 import LoginForm from '@components/LoginForm/LoginForm.tsx';
 import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
-import { LoginFormData } from '../types/types.ts';
-import { useMutation } from '@tanstack/react-query';
 import AuthServices from '@services/AuthServices.ts';
+import { useMutation } from '@tanstack/react-query';
+import { Card } from 'primereact/card';
+import { TabPanel, TabView } from 'primereact/tabview';
 import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
-
+import { Col, Row } from 'react-grid-system';
+import { LoginFormData } from '../types/types.ts';
 import { styles } from './AuthFormStyles.ts';
 
 

@@ -1,9 +1,8 @@
-import { FC, useState } from 'react';
-import { Button } from 'primereact/button';
 import UserInfoCard from '@components/UserInfoCard/UserInfoCard.tsx';
-import { Channel } from '../types/types.ts';
+import { Button } from 'primereact/button';
+import { FC, useState } from 'react';
 import ChannelList from '../ChannelList/ChannelList.tsx';
-
+import { Channel } from '../types/types.ts';
 import { styles } from './SidebarStyles.ts';
 
 type SidebarProps = {

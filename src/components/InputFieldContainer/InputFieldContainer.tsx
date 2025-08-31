@@ -1,5 +1,4 @@
 import { FC, ReactNode } from 'react';
-
 import { styles } from './InputFieldContainerStyles.ts';
 
 interface InputFieldContainerProps {

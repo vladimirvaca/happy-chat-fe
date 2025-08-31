@@ -1,7 +1,7 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, vi } from 'vitest';
-import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
 
 describe('SignUpForm', () => {
   const mockHandleSubmit = vi.fn();

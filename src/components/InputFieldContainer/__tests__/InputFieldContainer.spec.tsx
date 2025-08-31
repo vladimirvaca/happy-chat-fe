@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
+import { render, screen } from '@testing-library/react';
 
 describe('InputFieldContainer', () => {
   it('should renders children correctly', () => {

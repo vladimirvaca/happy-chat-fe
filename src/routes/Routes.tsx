@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
-import DashboardPage from '../pages/dashboard/DashboardPage.tsx';
 import AuthPage from '../pages/auth/AuthPage.tsx';
+import DashboardPage from '../pages/dashboard/DashboardPage.tsx';
 
 const router = createBrowserRouter([
   {

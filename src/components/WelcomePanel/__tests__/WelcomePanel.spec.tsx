@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
 import WelcomePanel from '@components/WelcomePanel/WelcomePanel.tsx';
+import { render, screen } from '@testing-library/react';
 
 describe('WelcomePanel', () => {
   const titleText = /welcome to happychat/i;

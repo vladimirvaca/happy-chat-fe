@@ -1,6 +1,5 @@
-import { FC } from 'react';
 import { Button } from 'primereact/button';
-
+import { FC } from 'react';
 import { styles } from './UserInfoCardStyles.ts';
 
 interface UserCardProps {

@@ -1,13 +1,13 @@
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
+import { LoginData, LoginFormData, LoginFormErrors } from '@pages/auth/types/types.ts';
 import { FormikValues, useFormik } from 'formik';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import { classNames } from 'primereact/utils';
 import { ChangeEvent } from 'react';
-import { ProgressSpinner } from 'primereact/progressspinner';
-import { LoginData, LoginFormData, LoginFormErrors } from '../../pages/auth/types/types.ts';
-
 import { styles } from './LoginFormStyles.ts';
+
 
 interface LoginFormProps {
   handleSubmit: (loginFormData: LoginData) => void;
@@ -15,7 +15,6 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ handleSubmit, isLoading }: LoginFormProps) => {
-
   const formik = useFormik({
     initialValues: {
       email: '',
