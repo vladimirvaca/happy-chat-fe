@@ -1,6 +1,6 @@
+import DashboardPage from '@pages/dashboard/dashboardPage.tsx';
 import { createBrowserRouter } from 'react-router';
 import AuthPage from '../pages/auth/AuthPage.tsx';
-import DashboardPage from '../pages/dashboard/DashboardPage.tsx';
 
 const router = createBrowserRouter([
   {
