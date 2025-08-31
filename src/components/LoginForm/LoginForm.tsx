@@ -75,7 +75,7 @@ const LoginForm = ({ handleSubmit, isLoading }: LoginFormProps) => {
 
   return (<>
       {isLoading ?
-        <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '100px', paddingBottom: '50px' }}>
+        <div style={styles.spinnerContainer} data-test="spinner-container">
           <ProgressSpinner style={{ width: '50px', height: '50px' }} />
         </div> :
         <form onSubmit={formik.handleSubmit} data-test="login-form">

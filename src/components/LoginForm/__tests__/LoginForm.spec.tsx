@@ -11,7 +11,7 @@ describe('LoginForm', () => {
   });
 
   it('should render all form elements correctly', () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     // Check for form elements
     expect(screen.getByTestId('email-input')).toBeInTheDocument();
@@ -20,7 +20,7 @@ describe('LoginForm', () => {
   });
 
   it('should shows validation errors for empty fields on blur', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
@@ -37,7 +37,7 @@ describe('LoginForm', () => {
   });
 
   it('should validates email format correctly', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
 
@@ -56,7 +56,7 @@ describe('LoginForm', () => {
   });
 
   it('should updates form values on input change', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
@@ -69,7 +69,7 @@ describe('LoginForm', () => {
   });
 
   it('should validates fields on every character input', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
 
@@ -87,7 +87,7 @@ describe('LoginForm', () => {
   });
 
   it('should handles form submission correctly with valid data', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
@@ -113,8 +113,8 @@ describe('LoginForm', () => {
     });
   });
 
-  it('does not submit form with invalid data', async () => {
-    render(<LoginForm handleSubmit={mockHandleSubmit} />);
+  it('should not submit form with invalid data', async () => {
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
 
     const emailInput = screen.getByTestId('email-input');
     const submitButton = screen.getByTestId('login-button');
@@ -128,4 +128,21 @@ describe('LoginForm', () => {
     // Verify form was not submitted
     expect(mockHandleSubmit).not.toHaveBeenCalled();
   });
+
+  it('should display spinner when isLoading is true', () => {
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={true} />);
+
+    // Check that spinner is displayed
+    expect(screen.getByTestId('spinner-container')).toBeInTheDocument();
+    expect(screen.queryByTestId('login-form')).not.toBeInTheDocument();
+  });
+
+  it('should not display spinner when isLoading is false', () => {
+    render(<LoginForm handleSubmit={mockHandleSubmit} isLoading={false} />);
+
+    // Check that form is displayed and spinner is not
+    expect(screen.queryByTestId('spinner-container')).not.toBeInTheDocument();
+    expect(screen.getByTestId('login-form')).toBeInTheDocument();
+  });
+
 });
