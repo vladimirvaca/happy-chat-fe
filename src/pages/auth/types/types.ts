@@ -28,3 +28,7 @@ export type SignUpFormErrors = {
   password?: string;
   confirmPassword?: string;
 };
+
+export type LoginResponse = {
+  accessToken: string;
+};

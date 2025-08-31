@@ -8,7 +8,7 @@ import { ChangeEvent } from 'react';
 import { styles } from './SignUpFormStyles.ts';
 
 
-interface SignUpFormProps {
+export interface SignUpFormProps {
   handleSubmit: (signUpFormData: SignUpFormData) => void;
 }
 

@@ -9,7 +9,7 @@ import { ChangeEvent } from 'react';
 import { styles } from './LoginFormStyles.ts';
 
 
-interface LoginFormProps {
+export interface LoginFormProps {
   handleSubmit: (loginFormData: LoginData) => void;
   isLoading: boolean;
 }

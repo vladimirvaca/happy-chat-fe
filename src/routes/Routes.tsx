@@ -1,18 +1,19 @@
+import AuthPage from '@pages/auth/AuthPage.tsx';
 import DashboardPage from '@pages/dashboard/DashboardPage.tsx';
-import { createBrowserRouter } from 'react-router';
-import AuthPage from '../pages/auth/AuthPage.tsx';
+import ProtectedRoute from '@routes/ProtectedRoute/ProtectedRoute.tsx';
+import { createBrowserRouter, Navigate } from 'react-router';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <DashboardPage />
-    )
+    element: <Navigate to="/auth" replace />
   },
   {
     path: '/dashboard',
     element: (
-      <DashboardPage />
+      <ProtectedRoute>
+        <DashboardPage />
+      </ProtectedRoute>
     )
   },
   {
