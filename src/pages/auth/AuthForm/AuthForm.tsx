@@ -5,7 +5,7 @@ import LoginForm from '@components/LoginForm/LoginForm.tsx';
 import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
 import { LoginFormData } from '../types/types.ts';
 import { useMutation } from '@tanstack/react-query';
-import AuthServices from '../../../services/AuthServices.ts';
+import AuthServices from '@services/AuthServices.ts';
 import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
 

@@ -4,10 +4,10 @@ import { Button } from 'primereact/button';
 import { FormikValues, useFormik } from 'formik';
 import { classNames } from 'primereact/utils';
 import { ChangeEvent } from 'react';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import { LoginData, LoginFormData, LoginFormErrors } from '../../pages/auth/types/types.ts';
 
 import { styles } from './LoginFormStyles.ts';
-import { ProgressSpinner } from 'primereact/progressspinner';
 
 interface LoginFormProps {
   handleSubmit: (loginFormData: LoginData) => void;

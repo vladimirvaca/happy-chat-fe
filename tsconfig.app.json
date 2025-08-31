@@ -29,6 +29,9 @@
     "paths": {
       "@components/*": [
         "./src/components/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
       ]
     }
   },
