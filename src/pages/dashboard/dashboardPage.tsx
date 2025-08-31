@@ -1,5 +1,5 @@
 import WelcomePanel from '@components/WelcomePanel/WelcomePanel.tsx';
-import { SetStateAction, useMemo, useState } from 'react';
+import { useMemo, useState, SetStateAction } from 'react';
 import ChatLayout from './ChatLayout/ChatLayout.tsx';
 import Sidebar from './Sidebar/Sidebar.tsx';
 import { Channel } from './types/types.ts';

@@ -1,10 +1,10 @@
 import InputFieldContainer from '@components/InputFieldContainer/InputFieldContainer.tsx';
+import { SignUpFormData, SignUpFormErrors } from '@pages/auth/types/types.ts';
 import { FormikValues, useFormik } from 'formik';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
 import { ChangeEvent } from 'react';
-import { SignUpFormData, SignUpFormErrors } from '../../pages/auth/types/types.ts';
 import { styles } from './SignUpFormStyles.ts';
 
 
