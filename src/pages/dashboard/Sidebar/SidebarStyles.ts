@@ -5,7 +5,8 @@ export const styles: Record<string, CSSProperties> = {
     display: 'flex',
     gap: 8,
     padding: 8,
-    borderBottom: '1px solid var(--surface-border, #e5e7eb)'
+    borderBottom: '1px solid var(--surface-border, #e5e7eb)',
+    justifyContent: 'center'
   },
   tabBtn: {
     display: 'inline-flex',

@@ -38,7 +38,7 @@ const ChannelList: FC<ChannelListProps> = ({ channels, selectedChannelId, onSele
                 )}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                {typeof channel.unreadCount === 'number' && channel.unreadCount > 0 && (
+                {channel.unreadCount > 0 && (
                   <Badge value={channel.unreadCount} severity="info" data-test="unreadCount-badge" />
                 )}
                 <div title="Members" style={styles.members} data-test="members-section">
