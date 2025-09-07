@@ -16,7 +16,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      lastname: '',
+      lastName: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -32,8 +32,8 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
         errors.name = 'Please enter your name.';
       }
 
-      if (!signUpFormData.lastname) {
-        errors.lastname = 'Please enter your lastname.';
+      if (!signUpFormData.lastName) {
+        errors.lastName = 'Please enter your last name.';
       }
 
       if (!signUpFormData.email) {
@@ -51,6 +51,10 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
         errors.password = 'Password is required.';
       }
 
+      if (signUpFormData.password && signUpFormData.password.length < 6) {
+        errors.password = 'Password must be at least 6 characters long.';
+      }
+
       if (!signUpFormData.confirmPassword) {
         errors.confirmPassword = 'Please confirm your password.';
       } else if (signUpFormData.password && signUpFormData.confirmPassword !== signUpFormData.password) {
@@ -59,9 +63,8 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
 
       return errors;
     },
-    onSubmit: (signUpFormData: SignUpFormData, { resetForm }) => {
+    onSubmit: (signUpFormData: SignUpFormData) => {
       handleSubmit(signUpFormData);
-      resetForm();
     }
   });
 
@@ -101,18 +104,18 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
         {getFormErrorMessage('name', formik)}
       </InputFieldContainer>
       <InputFieldContainer>
-        <label htmlFor="email"><strong>Lastname</strong></label>
+        <label htmlFor="lastName"><strong>Last name</strong></label>
         <InputText
           type="text"
-          id="lastname"
-          name="lastname"
-          placeholder="Enter your lastname"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter your lastName"
           data-test="lastname-input"
-          value={formik.values.lastname}
+          value={formik.values.lastName}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}
         />
-        {getFormErrorMessage('lastname', formik)}
+        {getFormErrorMessage('lastName', formik)}
       </InputFieldContainer>
       <InputFieldContainer>
         <label htmlFor="email"><strong>Email</strong></label>

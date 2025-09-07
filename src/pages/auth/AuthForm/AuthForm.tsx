@@ -1,44 +1,29 @@
 import LoginForm from '@components/LoginForm/LoginForm.tsx';
 import SignUpForm from '@components/SignUpForm/SignUpForm.tsx';
-import AuthServices from '@services/AuthServices.ts';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
+import useLoginMutation from '@pages/auth/AuthForm/useLoginMutation.ts';
+import useSignUpMutation from '@pages/auth/AuthForm/useSignUpMutation.ts';
 import { Card } from 'primereact/card';
 import { TabPanel, TabView } from 'primereact/tabview';
 import { Toast } from 'primereact/toast';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Col, Row } from 'react-grid-system';
-import { useNavigate } from 'react-router';
-import { LoginFormData, LoginResponse } from '../types/types.ts';
+import { LoginFormData, SignUpFormData } from '../types/types.ts';
 import { styles } from './AuthFormStyles.ts';
 
 
 const AuthForm = () => {
   const toast = useRef<Toast>(null);
-  const navigate = useNavigate();
+  const [activeIndexTab, setActiveIndexTab] = useState<number>(0);
 
-  const loginMutation = useMutation({
-    mutationFn: (loginFormData: LoginFormData) => AuthServices.login(loginFormData),
-    onSuccess: (data: LoginResponse) => {
-      localStorage.setItem('token', data.accessToken);
-      navigate('/dashboard');
-    },
-    onError: (error) => {
-      if (axios.isAxiosError(error)) {
-        toast.current?.show({
-          severity: 'warn',
-          summary: error?.response?.data.error,
-          detail: error?.response?.data.message,
-          life: 5000
-        });
-      } else {
-        toast.current?.show({ severity: 'warn', summary: 'Error', detail: error.message, life: 5000 });
-      }
-    }
-  });
+  const loginMutation = useLoginMutation(toast);
+  const signUpMutation = useSignUpMutation({ toast, setActiveIndexTab });
 
   const handleSubmitLoginForm = (loginFormData: LoginFormData) => {
     loginMutation.mutate(loginFormData);
+  };
+
+  const handleSubmitSignUpForm = (signUpFormData: SignUpFormData) => {
+    signUpMutation.mutate(signUpFormData);
   };
 
   const title = (<center>Welcome to Happy Chat</center>);
@@ -51,13 +36,12 @@ const AuthForm = () => {
       <Row align="center" justify="center" style={{ height: '100vh' }}>
         <Col xs={12} sm={6} md={8} lg={6} xl={4}>
           <Card title={title} subTitle={subtitle}>
-            <TabView>
+            <TabView activeIndex={activeIndexTab} onTabChange={(e) => setActiveIndexTab(e.index)} data-test="tabview">
               <TabPanel header="Login" headerStyle={styles.tabPanelHeader}>
                 < LoginForm handleSubmit={handleSubmitLoginForm} isLoading={loginMutation.isPending} />
               </TabPanel>
               <TabPanel header="Sign Up" headerStyle={styles.tabPanelHeader}>
-                <SignUpForm handleSubmit={() => {
-                }} />
+                <SignUpForm handleSubmit={handleSubmitSignUpForm} />
               </TabPanel>
             </TabView>
           </Card>

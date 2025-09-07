@@ -15,7 +15,7 @@ export type LoginFormErrors = {
 
 export type SignUpFormData = {
   name: string;
-  lastname: string;
+  lastName: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -23,7 +23,7 @@ export type SignUpFormData = {
 
 export type SignUpFormErrors = {
   name?: string;
-  lastname?: string;
+  lastName?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
