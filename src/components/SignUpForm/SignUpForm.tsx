@@ -110,7 +110,7 @@ const SignUpForm = ({ handleSubmit }: SignUpFormProps) => {
           id="lastName"
           name="lastName"
           placeholder="Enter your lastName"
-          data-test="lastname-input"
+          data-test="lastName-input"
           value={formik.values.lastName}
           onChange={handleFieldChange}
           onBlur={formik.handleBlur}

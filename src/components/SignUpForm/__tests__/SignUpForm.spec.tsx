@@ -120,14 +120,14 @@ describe('SignUpForm', () => {
     setup();
 
     const nameInput = screen.getByTestId('name-input');
-    const lastnameInput = screen.getByTestId('lastname-input');
+    const lastNameInput = screen.getByTestId('lastName-input');
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
     const confirmPasswordInput = screen.getByTestId('confirmPassword-input');
     const submitButton = screen.getByTestId('signup-button');
 
     await userEvent.type(nameInput, 'John');
-    await userEvent.type(lastnameInput, 'Doe');
+    await userEvent.type(lastNameInput, 'Doe');
     await userEvent.type(emailInput, 'john@example.com');
     await userEvent.type(passwordInput, 'Password123!');
     await userEvent.type(confirmPasswordInput, 'Password123!');
@@ -136,18 +136,18 @@ describe('SignUpForm', () => {
 
     expect(mockHandleSubmit).toHaveBeenCalledWith({
       name: 'John',
-      lastname: 'Doe',
+      lastName: 'Doe',
       email: 'john@example.com',
       password: 'Password123!',
       confirmPassword: 'Password123!'
     });
 
     await waitFor(() => {
-      expect(nameInput).toHaveValue('');
-      expect(lastnameInput).toHaveValue('');
-      expect(emailInput).toHaveValue('');
-      expect(passwordInput).toHaveValue('');
-      expect(confirmPasswordInput).toHaveValue('');
+      expect(nameInput).toHaveValue('John');
+      expect(lastNameInput).toHaveValue('Doe');
+      expect(emailInput).toHaveValue( 'john@example.com');
+      expect(passwordInput).toHaveValue( 'Password123!');
+      expect(confirmPasswordInput).toHaveValue( 'Password123!');
     });
   });
 
